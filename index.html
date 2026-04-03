@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>まもぺっと | Mamopetto</title>
+
+<style>
+:root {
+  --pink-light: #F9F3EA;
+  --pink-main:  #F6999C;
+  --mint:       #CCEDD0;
+  --yellow:     #FFF9CB;
+  --gray:       #F4F4F4;
+  --ink:        #2A2020;
+  --blue-dk:    #2E4A78;
+  --blue:       #4A6FA5;
+  --white:      #FFFFFF;
+}
+
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:var(--pink-light);
+  color:var(--ink);
+}
+
+.sec{padding:60px 20px;border-bottom:2px solid var(--ink);}
+.sec-inner{max-width:900px;margin:auto;}
+
+.btn-fill{
+  background:var(--pink-main);
+  color:white;
+  padding:14px 24px;
+  border-radius:999px;
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  border:2px solid var(--pink-main);
+  text-decoration:none;
+}
+.btn-outline{
+  border:2px solid var(--blue-dk);
+  color:var(--blue-dk);
+  padding:14px 24px;
+  border-radius:999px;
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  text-decoration:none;
+}
+
+.hero{text-align:center;padding:80px 20px;}
+.hero h1{font-size:2.5rem;color:var(--blue-dk);}
+.jp-line{color:var(--pink-main);display:block;font-size:1.5rem;}
+
+.social-inner{display:flex;flex-direction:column;gap:60px;}
+
+.line-block{display:flex;gap:30px;flex-wrap:wrap;align-items:center;}
+.qr-box{
+  background:white;
+  padding:10px;
+  border-radius:16px;
+  border:2px solid var(--ink);
+}
+.qr-box img{width:120px;}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>
+    <span class="jp-line">大切な家族のための、準備。</span>
+    Prepared, for the ones who depend on you.
+  </h1>
+
+  <p>東京で暮らすペットのための緊急キット。</p>
+  <p>A thoughtfully curated emergency kit for pet families in Tokyo.</p>
+
+  <div style="margin-top:30px;">
+    <a href="#signup" class="btn-fill">
+      <span>ウェイティングリストに登録</span>
+      <span style="font-size:12px;">Join waitlist</span>
+    </a>
+
+    <a href="#kit" class="btn-outline">
+      <span>キットについて</span>
+      <span style="font-size:12px;">Learn more</span>
+    </a>
+  </div>
+</section>
+
+<!-- KIT -->
+<section class="sec" id="kit">
+  <div class="sec-inner">
+    <h2>必要なものだけを、ちゃんと。</h2>
+    <p>Only what's needed. Nothing extra.</p>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="sec" style="background:var(--mint);">
+  <div class="sec-inner" style="text-align:center;">
+    <h2>¥20,000</h2>
+    <p>First Edition</p>
+
+    <a href="#signup" class="btn-fill">
+      <span>予約する</span>
+      <span style="font-size:12px;">Reserve</span>
+    </a>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="sec" id="signup">
+  <div class="sec-inner">
+    <h2>Get early access</h2>
+
+    <form onsubmit="event.preventDefault(); alert('Added!')">
+      <input type="email" placeholder="email" required style="padding:10px;width:100%;margin-bottom:10px;">
+      <button class="btn-fill">Join</button>
+    </form>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="sec" style="background:var(--yellow);">
+  <div class="sec-inner">
+    <div class="social-inner">
+
+      <!-- Instagram -->
+      <div>
+        <h3>Instagram</h3>
+
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-c59e7fb9-f21c-4a38-9452-bbc5beeefbfc"></div>
+      </div>
+
+      <!-- LINE -->
+      <div>
+        <h3>LINE</h3>
+
+        <div class="line-block">
+          <div class="qr-box">
+            <img src="https://qr-official.line.me/gs/M_547cqlbl_GW.png?oat_content=qr">
+          </div>
+
+          <div>
+            <p>Scan to connect</p>
+
+            <a href="https://lin.ee/547cqlbl" class="btn-outline">
+              <span>追加する</span>
+              <span style="font-size:12px;">Add on LINE</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
