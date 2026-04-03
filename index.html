@@ -141,22 +141,33 @@ body {
   color: var(--pink);
   letter-spacing: 0.06em;
   font-family: 'Jost', sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   position: relative;
   z-index: 1;
   text-align: center;
-  opacity: 0.8;
   max-width: 560px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
-/* badges — option G floating icons, one line */
+.hero p .sub-jp {
+  display: block;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  color: var(--pink);
+  opacity: 0.75;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+/* badges — stacked column, heavier fonts */
 .hero-badges {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
+  gap: 28px;
   flex-wrap: nowrap;
   margin-top: 48px;
   position: relative;
@@ -168,34 +179,39 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   cursor: default;
+  white-space: nowrap;
 }
 
 .hero-badges .badge-item .jp {
   font-family: 'Zen Maru Gothic', sans-serif;
   font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  color: var(--pink);
-  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--mint);
+  font-weight: 700;
 }
 
 .hero-badges .badge-item .en {
   font-family: 'Jost', sans-serif;
   font-size: 0.55rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--pink);
-  opacity: 0.5;
-  font-weight: 300;
+  color: var(--mint);
+  font-weight: 500;
+  opacity: 0.85;
 }
 
 .hero-badges .badge-item::after {
   content: '';
-  width: 14px;
+  width: 16px;
   height: 1px;
-  background: rgba(246,153,156,0.35);
-  margin-top: 2px;
+  background: rgba(168,224,208,0.45);
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .hero-badges { gap: 20px; flex-wrap: wrap; }
 }
 
 @media (max-width: 600px) {
@@ -923,7 +939,7 @@ nav {
     <span class="en-line">Prepared, for the ones who <strong>depend on you.</strong></span>
   </div>
 
-  <p class="reveal">A thoughtfully curated emergency kit<br>for pet families in Tokyo.</p>
+  <p class="reveal"><span class="sub-jp">東京で暮らすすべてのペットと飼い主のための緊急キット。</span><br>A thoughtfully curated emergency kit for pet families in Tokyo.</p>
 
   <div class="hero-badges reveal">
     <div class="badge-item">
