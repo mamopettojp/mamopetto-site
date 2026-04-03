@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>まもぺっと | Mamopetto</title>
 
-<!-- Instagram Feed -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
+<!-- Google Font (cute + clean) -->
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -14,7 +14,6 @@
   --pink-main:  #F6999C;
   --mint:       #CCEDD0;
   --yellow:     #FFF9CB;
-  --gray:       #F4F4F4;
   --ink:        #2A2020;
   --blue-dk:    #2E4A78;
   --white:      #FFFFFF;
@@ -22,63 +21,99 @@
 
 body{
   margin:0;
-  font-family:sans-serif;
+  font-family:'Zen Maru Gothic', sans-serif;
   background:var(--pink-light);
   color:var(--ink);
-  line-height:1.6;
 }
 
-.sec{padding:60px 20px;border-bottom:2px solid var(--ink);}
-.sec-inner{max-width:900px;margin:auto;text-align:center;}
+.sec{
+  padding:70px 20px;
+  border-bottom:2px solid var(--ink);
+}
 
-.hero{text-align:center;padding:80px 20px;}
-.hero h1{font-size:2.5rem;color:var(--blue-dk);}
-.jp-line{color:var(--pink-main);display:block;font-size:1.5rem;margin-bottom:6px;}
+.sec-inner{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
 
-.hero p{margin:6px 0;}
-
+/* Buttons */
 .btn-fill{
   background:var(--pink-main);
   color:white;
-  padding:14px 24px;
+  padding:16px 28px;
   border-radius:999px;
-  display:inline-flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
   border:2px solid var(--pink-main);
   text-decoration:none;
-  margin:6px;
+  display:inline-block;
+  margin:10px;
+  font-weight:700;
 }
 
 .btn-outline{
   border:2px solid var(--blue-dk);
   color:var(--blue-dk);
-  padding:14px 24px;
+  padding:16px 28px;
   border-radius:999px;
-  display:inline-flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
   text-decoration:none;
-  margin:6px;
+  display:inline-block;
+  margin:10px;
 }
 
+/* HERO */
+.hero{
+  text-align:center;
+  padding:100px 20px;
+}
+
+.hero h1{
+  font-size:2.5rem;
+  color:var(--blue-dk);
+}
+
+.jp-line{
+  color:var(--pink-main);
+  display:block;
+  font-size:1.4rem;
+  margin-bottom:10px;
+}
+
+/* Cute illustration */
+.illustration{
+  width:160px;
+  margin:30px auto;
+}
+
+/* Form */
 input{
   padding:12px;
   width:100%;
-  margin-bottom:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
+  max-width:300px;
+  border-radius:10px;
+  border:2px solid var(--ink);
 }
 
+.success-message{
+  display:none;
+  margin-top:20px;
+  font-weight:bold;
+  color:var(--blue-dk);
+}
+
+/* Instagram center */
+.instagram-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top:30px;
+}
+
+/* LINE */
 .line-block{
   display:flex;
+  justify-content:center;
   gap:30px;
   flex-wrap:wrap;
-  align-items:center;
-  justify-content:center;
+  margin-top:30px;
 }
 
 .qr-box{
@@ -89,11 +124,6 @@ input{
 }
 
 .qr-box img{width:120px;}
-
-#success-message{
-  display:none;
-  margin-top:20px;
-}
 </style>
 </head>
 
@@ -106,19 +136,15 @@ input{
     Prepared, for the ones who depend on you.
   </h1>
 
+  <!-- Cute free illustration (replace later if you want) -->
+  <img class="illustration" src="https://cdn-icons-png.flaticon.com/512/616/616408.png"/>
+
   <p>東京で暮らすペットのための緊急キット。</p>
   <p>A thoughtfully curated emergency kit for pet families in Tokyo.</p>
 
-  <div style="margin-top:30px;">
-    <a href="#signup" class="btn-fill">
-      <span>ウェイティングリストに登録</span>
-      <span style="font-size:12px;">Join waitlist</span>
-    </a>
-
-    <a href="#kit" class="btn-outline">
-      <span>キットについて</span>
-      <span style="font-size:12px;">Learn more</span>
-    </a>
+  <div>
+    <a href="#signup" class="btn-fill">ウェイティングリストに登録</a>
+    <a href="#kit" class="btn-outline">キットについて</a>
   </div>
 </section>
 
@@ -135,11 +161,7 @@ input{
   <div class="sec-inner">
     <h2>¥20,000</h2>
     <p>First Edition</p>
-
-    <a href="#signup" class="btn-fill">
-      <span>予約する</span>
-      <span style="font-size:12px;">Reserve</span>
-    </a>
+    <a href="#signup" class="btn-fill">予約する</a>
   </div>
 </section>
 
@@ -148,23 +170,16 @@ input{
   <div class="sec-inner">
     <h2>Get early access</h2>
 
-    <form 
-      name="waitlist" 
-      method="POST" 
-      data-netlify="true"
-      onsubmit="handleSubmit(event)"
-      id="signup-form"
-    >
+    <form name="waitlist" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
       <input type="hidden" name="form-name" value="waitlist">
 
-      <input type="email" name="email" placeholder="your email" required>
-
+      <input type="email" name="email" placeholder="email" required>
+      <br><br>
       <button class="btn-fill">Join</button>
     </form>
 
-    <div id="success-message">
-      <p style="font-size:18px;">You're in ✨</p>
-      <p style="font-size:13px; opacity:.7;">We'll email you when we launch.</p>
+    <div id="success" class="success-message">
+      You’re in ✨
     </div>
   </div>
 </section>
@@ -175,25 +190,28 @@ input{
 
     <!-- Instagram -->
     <h3>Instagram</h3>
-    <div class="elfsight-app-4b419cbe-b0ba-4eb8-9de7-24d004fc807f"></div>
+
+    <div class="instagram-wrap">
+      <div>
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-4b419cbe-b0ba-4eb8-9de7-24d004fc807f"></div>
+      </div>
+    </div>
 
     <!-- LINE -->
-    <div style="margin-top:50px;">
-      <h3>LINE</h3>
+    <h3 style="margin-top:60px;">LINE</h3>
 
-      <div class="line-block">
-        <div class="qr-box">
-          <img src="https://qr-official.line.me/gs/M_547cqlbl_GW.png?oat_content=qr">
-        </div>
+    <div class="line-block">
+      <div class="qr-box">
+        <img src="https://qr-official.line.me/gs/M_547cqlbl_GW.png">
+      </div>
 
-        <div>
-          <p>Scan to connect</p>
+      <div>
+        <p>Scan to connect</p>
 
-          <a href="https://lin.ee/547cqlbl" class="btn-outline">
-            <span>追加する</span>
-            <span style="font-size:12px;">Add on LINE</span>
-          </a>
-        </div>
+        <a href="https://lin.ee/547cqlbl" class="btn-outline">
+          追加する
+        </a>
       </div>
     </div>
 
@@ -201,24 +219,21 @@ input{
 </section>
 
 <script>
-function handleSubmit(e) {
-  e.preventDefault();
+function handleSubmit(event) {
+  event.preventDefault();
 
-  const form = document.getElementById("signup-form");
+  const form = event.target;
   const data = new FormData(form);
 
   fetch("/", {
     method: "POST",
     body: data
-  })
-  .then(() => {
+  }).then(() => {
     form.style.display = "none";
-    document.getElementById("success-message").style.display = "block";
-  })
-  .catch(() => alert("Something went wrong."));
+    document.getElementById("success").style.display = "block";
+  }).catch(() => alert("Error"));
 }
 </script>
 
 </body>
 </html>
-```
