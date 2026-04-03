@@ -1,9 +1,13 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>まもぺっと | Mamopetto</title>
+
+<!-- Instagram Feed -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
 
 <style>
 :root {
@@ -14,7 +18,6 @@
   --gray:       #F4F4F4;
   --ink:        #2A2020;
   --blue-dk:    #2E4A78;
-  --blue:       #4A6FA5;
   --white:      #FFFFFF;
 }
 
@@ -23,10 +26,17 @@ body{
   font-family:sans-serif;
   background:var(--pink-light);
   color:var(--ink);
+  line-height:1.6;
 }
 
 .sec{padding:60px 20px;border-bottom:2px solid var(--ink);}
-.sec-inner{max-width:900px;margin:auto;}
+.sec-inner{max-width:900px;margin:auto;text-align:center;}
+
+.hero{text-align:center;padding:80px 20px;}
+.hero h1{font-size:2.5rem;color:var(--blue-dk);}
+.jp-line{color:var(--pink-main);display:block;font-size:1.5rem;margin-bottom:6px;}
+
+.hero p{margin:6px 0;}
 
 .btn-fill{
   background:var(--pink-main);
@@ -36,9 +46,12 @@ body{
   display:inline-flex;
   flex-direction:column;
   align-items:center;
+  justify-content:center;
   border:2px solid var(--pink-main);
   text-decoration:none;
+  margin:6px;
 }
+
 .btn-outline{
   border:2px solid var(--blue-dk);
   color:var(--blue-dk);
@@ -50,23 +63,38 @@ body{
   justify-content:center;
   text-align:center;
   text-decoration:none;
+  margin:6px;
 }
 
-.hero{text-align:center;padding:80px 20px;}
-.hero h1{font-size:2.5rem;color:var(--blue-dk);}
-.jp-line{color:var(--pink-main);display:block;font-size:1.5rem;}
+input{
+  padding:12px;
+  width:100%;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
 
-.social-inner{display:flex;flex-direction:column;gap:60px;}
+.line-block{
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+}
 
-.line-block{display:flex;gap:30px;flex-wrap:wrap;align-items:center;}
 .qr-box{
   background:white;
   padding:10px;
   border-radius:16px;
   border:2px solid var(--ink);
 }
+
 .qr-box img{width:120px;}
 
+#success-message{
+  display:none;
+  margin-top:20px;
+}
 </style>
 </head>
 
@@ -105,7 +133,7 @@ body{
 
 <!-- PRICE -->
 <section class="sec" style="background:var(--mint);">
-  <div class="sec-inner" style="text-align:center;">
+  <div class="sec-inner">
     <h2>¥20,000</h2>
     <p>First Edition</p>
 
@@ -121,49 +149,77 @@ body{
   <div class="sec-inner">
     <h2>Get early access</h2>
 
-    <form onsubmit="event.preventDefault(); alert('Added!')">
-      <input type="email" placeholder="email" required style="padding:10px;width:100%;margin-bottom:10px;">
+    <form 
+      name="waitlist" 
+      method="POST" 
+      data-netlify="true"
+      onsubmit="handleSubmit(event)"
+      id="signup-form"
+    >
+      <input type="hidden" name="form-name" value="waitlist">
+
+      <input type="email" name="email" placeholder="your email" required>
+
       <button class="btn-fill">Join</button>
     </form>
+
+    <div id="success-message">
+      <p style="font-size:18px;">You're in ✨</p>
+      <p style="font-size:13px; opacity:.7;">We'll email you when we launch.</p>
+    </div>
   </div>
 </section>
 
 <!-- SOCIAL -->
 <section class="sec" style="background:var(--yellow);">
   <div class="sec-inner">
-    <div class="social-inner">
 
-      <!-- Instagram -->
-      <div>
-        <h3>Instagram</h3>
+    <!-- Instagram -->
+    <h3>Instagram</h3>
+    <div class="elfsight-app-4b419cbe-b0ba-4eb8-9de7-24d004fc807f"></div>
 
-        <script src="https://elfsightcdn.com/platform.js" async></script>
-        <div class="<!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-4b419cbe-b0ba-4eb8-9de7-24d004fc807f" data-elfsight-app-lazy></div>>
-      <!-- LINE -->
-      <div>
-        <h3>LINE</h3>
+    <!-- LINE -->
+    <div style="margin-top:50px;">
+      <h3>LINE</h3>
 
-        <div class="line-block">
-          <div class="qr-box">
-            <img src="https://qr-official.line.me/gs/M_547cqlbl_GW.png?oat_content=qr">
-          </div>
+      <div class="line-block">
+        <div class="qr-box">
+          <img src="https://qr-official.line.me/gs/M_547cqlbl_GW.png?oat_content=qr">
+        </div>
 
-          <div>
-            <p>Scan to connect</p>
+        <div>
+          <p>Scan to connect</p>
 
-            <a href="https://lin.ee/547cqlbl" class="btn-outline">
-              <span>追加する</span>
-              <span style="font-size:12px;">Add on LINE</span>
-            </a>
-          </div>
+          <a href="https://lin.ee/547cqlbl" class="btn-outline">
+            <span>追加する</span>
+            <span style="font-size:12px;">Add on LINE</span>
+          </a>
         </div>
       </div>
-
     </div>
+
   </div>
 </section>
 
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const form = document.getElementById("signup-form");
+  const data = new FormData(form);
+
+  fetch("/", {
+    method: "POST",
+    body: data
+  })
+  .then(() => {
+    form.style.display = "none";
+    document.getElementById("success-message").style.display = "block";
+  })
+  .catch(() => alert("Something went wrong."));
+}
+</script>
+
 </body>
 </html>
+```
