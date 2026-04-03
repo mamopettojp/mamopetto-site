@@ -5,235 +5,226 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>まもぺっと | Mamopetto</title>
 
-<!-- Google Font (cute + clean) -->
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --pink-light: #F9F3EA;
-  --pink-main:  #F6999C;
-  --mint:       #CCEDD0;
-  --yellow:     #FFF9CB;
-  --ink:        #2A2020;
-  --blue-dk:    #2E4A78;
-  --white:      #FFFFFF;
-}
-
 body{
   margin:0;
   font-family:'Zen Maru Gothic', sans-serif;
-  background:var(--pink-light);
-  color:var(--ink);
+  background:#F6F1E8;
+  color:#2A2020;
 }
 
-.sec{
-  padding:70px 20px;
-  border-bottom:2px solid var(--ink);
+/* SECTION BASE */
+.section{
+  padding:100px 20px;
 }
 
-.sec-inner{
+.container{
   max-width:900px;
   margin:auto;
-  text-align:center;
-}
-
-/* Buttons */
-.btn-fill{
-  background:var(--pink-main);
-  color:white;
-  padding:16px 28px;
-  border-radius:999px;
-  border:2px solid var(--pink-main);
-  text-decoration:none;
-  display:inline-block;
-  margin:10px;
-  font-weight:700;
-}
-
-.btn-outline{
-  border:2px solid var(--blue-dk);
-  color:var(--blue-dk);
-  padding:16px 28px;
-  border-radius:999px;
-  text-decoration:none;
-  display:inline-block;
-  margin:10px;
 }
 
 /* HERO */
 .hero{
   text-align:center;
-  padding:100px 20px;
 }
 
 .hero h1{
-  font-size:2.5rem;
-  color:var(--blue-dk);
+  font-size:3rem;
+  color:#2E4A78;
+  line-height:1.4;
 }
 
-.jp-line{
-  color:var(--pink-main);
+.jp{
+  color:#F6999C;
+  font-size:1.2rem;
   display:block;
-  font-size:1.4rem;
-  margin-bottom:10px;
+  margin-bottom:15px;
 }
 
-/* Cute illustration */
-.illustration{
-  width:160px;
-  margin:30px auto;
+/* BUTTON */
+.btn{
+  background:#F6999C;
+  color:white;
+  padding:16px 30px;
+  border-radius:999px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:20px;
 }
 
-/* Form */
+/* BLUE STORY BLOCK */
+.blue{
+  background:#4A6FA5;
+  color:white;
+  text-align:center;
+}
+
+/* IMAGE BLOCK */
+.image-block img{
+  width:100%;
+  border-radius:20px;
+}
+
+/* PRODUCT GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+}
+
+/* EMAIL */
+.email{
+  text-align:center;
+}
+
 input{
   padding:12px;
-  width:100%;
-  max-width:300px;
+  width:260px;
   border-radius:10px;
-  border:2px solid var(--ink);
+  border:2px solid #2A2020;
 }
 
-.success-message{
+.success{
   display:none;
   margin-top:20px;
   font-weight:bold;
-  color:var(--blue-dk);
 }
 
-/* Instagram center */
-.instagram-wrap{
+/* INSTAGRAM */
+.ig-wrap{
   display:flex;
   justify-content:center;
-  margin-top:30px;
+}
+
+.ig-wrap > div{
+  max-width:400px;
+  width:100%;
 }
 
 /* LINE */
-.line-block{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  flex-wrap:wrap;
-  margin-top:30px;
+.line{
+  text-align:center;
 }
 
-.qr-box{
-  background:white;
-  padding:10px;
-  border-radius:16px;
-  border:2px solid var(--ink);
+.qr{
+  width:120px;
+  margin:20px auto;
 }
-
-.qr-box img{width:120px;}
 </style>
 </head>
 
 <body>
 
 <!-- HERO -->
-<section class="hero">
-  <h1>
-    <span class="jp-line">大切な家族のための、準備。</span>
-    Prepared, for the ones who depend on you.
-  </h1>
+<section class="section hero">
+  <div class="container">
+    <span class="jp">大切な家族のための、準備。</span>
+    <h1>Prepared, for the ones who depend on you.</h1>
 
-  <!-- Cute free illustration (replace later if you want) -->
-  <img class="illustration" src="https://cdn-icons-png.flaticon.com/512/616/616408.png"/>
+    <p>東京で暮らすペットのための緊急キット。</p>
+    <p>A thoughtfully curated emergency kit for pet families in Tokyo.</p>
 
-  <p>東京で暮らすペットのための緊急キット。</p>
-  <p>A thoughtfully curated emergency kit for pet families in Tokyo.</p>
-
-  <div>
-    <a href="#signup" class="btn-fill">ウェイティングリストに登録</a>
-    <a href="#kit" class="btn-outline">キットについて</a>
+    <a href="#email" class="btn">ウェイティングリストに登録</a>
   </div>
 </section>
 
-<!-- KIT -->
-<section class="sec" id="kit">
-  <div class="sec-inner">
-    <h2>必要なものだけを、ちゃんと。</h2>
-    <p>Only what's needed. Nothing extra.</p>
+<!-- STORY -->
+<section class="section blue">
+  <div class="container">
+    <h2>備えがあると、安心できる。</h2>
+    <p>
+      災害時、ペットのための準備は後回しになりがちです。<br>
+      Mamopettoは、日常の中に自然に備えを取り入れます。
+    </p>
   </div>
 </section>
 
-<!-- PRICE -->
-<section class="sec" style="background:var(--mint);">
-  <div class="sec-inner">
-    <h2>¥20,000</h2>
-    <p>First Edition</p>
-    <a href="#signup" class="btn-fill">予約する</a>
+<!-- IMAGE -->
+<section class="section image-block">
+  <div class="container">
+    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e">
   </div>
 </section>
 
-<!-- SIGNUP -->
-<section class="sec" id="signup">
-  <div class="sec-inner">
+<!-- PRODUCTS -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align:center;">Kit Highlights</h2>
+
+    <div class="grid">
+      <div class="card">Water & Food</div>
+      <div class="card">First Aid</div>
+      <div class="card">Comfort Items</div>
+      <div class="card">Emergency Info</div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL -->
+<section class="section email" id="email">
+  <div class="container">
     <h2>Get early access</h2>
 
     <form name="waitlist" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
       <input type="hidden" name="form-name" value="waitlist">
-
+      <br><br>
       <input type="email" name="email" placeholder="email" required>
       <br><br>
-      <button class="btn-fill">Join</button>
+      <button class="btn">Join</button>
     </form>
 
-    <div id="success" class="success-message">
-      You’re in ✨
+    <div id="success" class="success">You’re in ✨</div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="section" style="background:#FFF9CB;">
+  <div class="container">
+    <h3 style="text-align:center;">Instagram</h3>
+
+    <div class="ig-wrap">
+      <div>
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-4b419cbe-b0ba-4eb8-9de7-24d004fc807f"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SOCIAL -->
-<section class="sec" style="background:var(--yellow);">
-  <div class="sec-inner">
+<!-- LINE -->
+<section class="section line">
+  <div class="container">
+    <h3>LINE</h3>
 
-    <!-- Instagram -->
-    <h3>Instagram</h3>
+    <img class="qr" src="https://qr-official.line.me/gs/M_547cqlbl_GW.png">
 
-   <h3>Instagram</h3>
+    <br>
 
-<div class="instagram-wrap">
-  <div class="elfsight-container">
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-4b419cbe-b0ba-4eb8-9de7-24d004fc807f"></div>
-  </div>
-</div>
-
-    <!-- LINE -->
-    <h3 style="margin-top:60px;">LINE</h3>
-
-    <div class="line-block">
-      <div class="qr-box">
-        <img src="https://qr-official.line.me/gs/M_547cqlbl_GW.png">
-      </div>
-
-      <div>
-        <p>Scan to connect</p>
-
-        <a href="https://lin.ee/547cqlbl" class="btn-outline">
-          追加する
-        </a>
-      </div>
-    </div>
-
+    <a href="https://lin.ee/547cqlbl" class="btn">追加する</a>
   </div>
 </section>
 
 <script>
-function handleSubmit(event) {
-  event.preventDefault();
-
-  const form = event.target;
+function handleSubmit(e){
+  e.preventDefault();
+  const form = e.target;
   const data = new FormData(form);
 
-  fetch("/", {
-    method: "POST",
-    body: data
-  }).then(() => {
-    form.style.display = "none";
-    document.getElementById("success").style.display = "block";
-  }).catch(() => alert("Error"));
+  fetch("/", { method: "POST", body: data })
+    .then(() => {
+      form.style.display = "none";
+      document.getElementById("success").style.display = "block";
+    })
+    .catch(() => alert("Error"));
 }
 </script>
 
