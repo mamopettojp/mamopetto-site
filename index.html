@@ -15,18 +15,9 @@ body{
   color:#2A2020;
 }
 
-/* SECTION BASE */
-.section{
-  padding:100px 20px;
-}
-
-.container{
-  max-width:900px;
-  margin:auto;
-}
-
 /* HERO */
 .hero{
+  padding:120px 20px;
   text-align:center;
 }
 
@@ -40,42 +31,44 @@ body{
   color:#F6999C;
   font-size:1.2rem;
   display:block;
-  margin-bottom:15px;
+  margin-bottom:20px;
 }
 
-/* BUTTON */
-.btn{
-  background:#F6999C;
-  color:white;
-  padding:16px 30px;
-  border-radius:999px;
-  text-decoration:none;
-  display:inline-block;
-  margin-top:20px;
+/* SPLIT SECTION */
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
 }
 
-/* BLUE STORY BLOCK */
-.blue{
+.split .text{
+  padding:80px;
   background:#4A6FA5;
   color:white;
-  text-align:center;
 }
 
-/* IMAGE BLOCK */
-.image-block img{
+.split .image{
+  background:url('https://images.unsplash.com/photo-1583511655857-d19b40a7a54e') center/cover;
+}
+
+/* IMAGE STRIP */
+.image-strip img{
   width:100%;
-  border-radius:20px;
+  display:block;
 }
 
 /* PRODUCT GRID */
+.products{
+  padding:80px 20px;
+}
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:20px;
 }
 
 .card{
-  background:white;
+  background:#fff;
   padding:20px;
   border-radius:16px;
   text-align:center;
@@ -83,6 +76,8 @@ body{
 
 /* EMAIL */
 .email{
+  background:#FFF9CB;
+  padding:80px 20px;
   text-align:center;
 }
 
@@ -93,13 +88,27 @@ input{
   border:2px solid #2A2020;
 }
 
+.btn{
+  background:#F6999C;
+  color:white;
+  padding:14px 24px;
+  border-radius:999px;
+  border:none;
+  margin-top:10px;
+}
+
 .success{
   display:none;
   margin-top:20px;
   font-weight:bold;
 }
 
-/* INSTAGRAM */
+/* IG */
+.ig{
+  padding:80px 20px;
+  text-align:center;
+}
+
 .ig-wrap{
   display:flex;
   justify-content:center;
@@ -112,12 +121,8 @@ input{
 
 /* LINE */
 .line{
+  padding:80px 20px;
   text-align:center;
-}
-
-.qr{
-  width:120px;
-  margin:20px auto;
 }
 </style>
 </head>
@@ -125,92 +130,74 @@ input{
 <body>
 
 <!-- HERO -->
-<section class="section hero">
-  <div class="container">
-    <span class="jp">大切な家族のための、準備。</span>
-    <h1>Prepared, for the ones who depend on you.</h1>
-
-    <p>東京で暮らすペットのための緊急キット。</p>
-    <p>A thoughtfully curated emergency kit for pet families in Tokyo.</p>
-
-    <a href="#email" class="btn">ウェイティングリストに登録</a>
-  </div>
+<section class="hero">
+  <span class="jp">大切な家族のための、準備。</span>
+  <h1>Prepared, for the ones who depend on you.</h1>
+  <p>東京で暮らすペットのための緊急キット。</p>
 </section>
 
-<!-- STORY -->
-<section class="section blue">
-  <div class="container">
+<!-- SPLIT (THIS is the big visual change) -->
+<section class="split">
+  <div class="text">
     <h2>備えがあると、安心できる。</h2>
     <p>
-      災害時、ペットのための準備は後回しになりがちです。<br>
+      災害時、ペットのための準備は後回しになりがちです。<br><br>
       Mamopettoは、日常の中に自然に備えを取り入れます。
     </p>
   </div>
+
+  <div class="image"></div>
 </section>
 
-<!-- IMAGE -->
-<section class="section image-block">
-  <div class="container">
-    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e">
-  </div>
+<!-- IMAGE STRIP -->
+<section class="image-strip">
+  <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b">
 </section>
 
 <!-- PRODUCTS -->
-<section class="section">
-  <div class="container">
-    <h2 style="text-align:center;">Kit Highlights</h2>
+<section class="products">
+  <h2 style="text-align:center;">Kit Highlights</h2>
 
-    <div class="grid">
-      <div class="card">Water & Food</div>
-      <div class="card">First Aid</div>
-      <div class="card">Comfort Items</div>
-      <div class="card">Emergency Info</div>
-    </div>
+  <div class="grid">
+    <div class="card">Water</div>
+    <div class="card">First Aid</div>
+    <div class="card">Food</div>
+    <div class="card">Comfort</div>
   </div>
 </section>
 
 <!-- EMAIL -->
-<section class="section email" id="email">
-  <div class="container">
-    <h2>Get early access</h2>
+<section class="email">
+  <h2>Get early access</h2>
 
-    <form name="waitlist" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
-      <input type="hidden" name="form-name" value="waitlist">
-      <br><br>
-      <input type="email" name="email" placeholder="email" required>
-      <br><br>
-      <button class="btn">Join</button>
-    </form>
+  <form name="waitlist" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
+    <input type="hidden" name="form-name" value="waitlist">
+    <input type="email" name="email" placeholder="email" required><br>
+    <button class="btn">Join</button>
+  </form>
 
-    <div id="success" class="success">You’re in ✨</div>
-  </div>
+  <div id="success" class="success">You’re in ✨</div>
 </section>
 
-<!-- INSTAGRAM -->
-<section class="section" style="background:#FFF9CB;">
-  <div class="container">
-    <h3 style="text-align:center;">Instagram</h3>
+<!-- IG -->
+<section class="ig">
+  <h3>Instagram</h3>
 
-    <div class="ig-wrap">
-      <div>
-        <script src="https://elfsightcdn.com/platform.js" async></script>
-        <div class="elfsight-app-4b419cbe-b0ba-4eb8-9de7-24d004fc807f"></div>
-      </div>
+  <div class="ig-wrap">
+    <div>
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-4b419cbe-b0ba-4eb8-9de7-24d004fc807f"></div>
     </div>
   </div>
 </section>
 
 <!-- LINE -->
-<section class="section line">
-  <div class="container">
-    <h3>LINE</h3>
+<section class="line">
+  <h3>LINE</h3>
 
-    <img class="qr" src="https://qr-official.line.me/gs/M_547cqlbl_GW.png">
+  <img src="https://qr-official.line.me/gs/M_547cqlbl_GW.png" width="120"><br>
 
-    <br>
-
-    <a href="https://lin.ee/547cqlbl" class="btn">追加する</a>
-  </div>
+  <a href="https://lin.ee/547cqlbl" class="btn">追加する</a>
 </section>
 
 <script>
@@ -223,8 +210,7 @@ function handleSubmit(e){
     .then(() => {
       form.style.display = "none";
       document.getElementById("success").style.display = "block";
-    })
-    .catch(() => alert("Error"));
+    });
 }
 </script>
 
