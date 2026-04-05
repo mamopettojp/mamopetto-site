@@ -3,77 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Inter:400,700">
-    <title>Premium Redesign</title>
+    <title>Prenium Redesign</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F9F3EA;
-            color: #3F3F3F;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-        h1, h2, h3, h4 {
-            color: #D47080;
-        }
-        .bilingual-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .bilingual-row {
-            flex-direction: column;
-        }
-        .glass-container {
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(15px);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 10px;
+            background-color: #f4f4f4;
         }
         .hero {
-            background-color: rgba(255, 255, 255, 0.3);
-            padding: 50px;
+            background: url('hero-image.jpg') center / cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            border-radius: 15px;
+            color: white;
         }
-        .story, .feature {
+        .story, .features {
+            padding: 50px;
+            background-color: white;
             margin: 20px;
-        }
-        .feature-card {
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 10px;
-            transition: transform 0.2s;
-        }
-        .feature-card:hover {
-            transform: scale(1.05);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         @media (max-width: 600px) {
-            .bilingual-container {
+            .hero {
+                height: 50vh;
                 flex-direction: column;
+                justify-content: center;
+            }
+            .story, .features {
+                padding: 20px;
+                margin: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="hero glass-container">
-        <h1>Main Headline</h1>
-        <h2>Subheadline</h2>
+    <div class="hero">
+        <h1>Welcome to Our Premium Redesign</h1>
+        <p>Experience the best with our new features.</p>
     </div>
-
-    <div class="story glass-container">
-        <h3>Story Title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula.</p>
+    <div class="story">
+        <h2>Our Story</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus, ligula at elementum bibendum, ligula purus fringilla mauris, nec consectetur metus nisl ut lorem.</p>
     </div>
-
-    <div class="features bilingual-container">
-        <div class="feature glass-container feature-card">
-            <h4>Feature 1</h4>
-            <p>Description of Feature 1.</p>
-        </div>
-        <div class="feature glass-container feature-card">
-            <h4>Feature 2</h4>
-            <p>Description of Feature 2.</p>
-        </div>
+    <div class="features">
+        <h2>Features</h2>
+        <ul>
+            <li>Glass Containers: Stylish and modern.</li>
+            <li>Enhanced Typography: Improved readability.</li>
+            <li>Bilingual System: Available in multiple languages.</li>
+            <li>Mobile-First Responsive Design: Optimized for all devices.</li>
+        </ul>
     </div>
 </body>
 </html>
