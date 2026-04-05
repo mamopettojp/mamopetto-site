@@ -423,5 +423,58 @@ nav {
       <div class="story-headline__jp">あの時の不安から、つくりました。</div>
     </div>
     <div class="story-content">
-      <p><strong>「もし何かあったら*
-
+      <p><strong>「もし何かあったら、ちゃんと守れるかな？」</strong></p>
+      <p>東京でペットと暮らす中で、そう思った瞬間がありました。だから、必要なものだけを、ちゃんと。迷わず使える形で、ひとつにまとめました。</p>
+    </div>
+  </div>
+  <div class="story-image"></div>
+</section>
+
+<section class="features reveal">
+  <div class="features-header">
+    <h2 class="features-header__title">キットハイライト</h2>
+    <p>Kit Highlights — Every item, intentional</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon">💧</div>
+      <h3 class="feature-title">飲料水</h3>
+      <p class="feature-desc">Emergency water for critical moments</p>
+    </div>
+    
+    <div class="feature-card reveal">
+      <div class="feature-icon">🩹</div>
+      <h3 class="feature-title">応急手当</h3>
+      <p class="feature-desc">First aid essentials for pets</p>
+    </div>
+    
+    <div class="feature-card reveal">
+      <div class="feature-icon">🍱</div>
+      <h3 class="feature-title">食料</h3>
+      <p class="feature-desc">Shelf-stable pet food options</p>
+    </div>
+    
+    <div class="feature-card reveal">
+      <div class="feature-icon">🤍</div>
+      <h3 class="feature-title">コンフォート</h3>
+      <p class="feature-desc">Items to keep your pet calm</p>
+    </div>
+  </div>
+</section>
+
+<script>
+const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -80px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
